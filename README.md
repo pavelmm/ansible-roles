@@ -25,40 +25,60 @@
    `[root@localhost roles]# ls
      requirements.yml`
    
-2. При помощи `ansible-galaxy` скачать себе эту роль.                                                                       ```[root@localhost roles]# ansible-galaxy install -r requirements.yml --roles-path ./
+2. При помощи `ansible-galaxy` скачать себе эту роль.                          ``` 
+[root@localhost roles]# ansible-galaxy install -r requirements.yml --roles-path ./
 The authenticity of host 'github.com (140.82.121.3)' can't be established.
 ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeI.
 ECDSA key fingerprint is MD5:7b:99:81:1e:4c:91:a5:0d:5a:2e:2e:80:13:3f:24:ca.
 Are you sure you want to continue connecting (yes/no)? yes
 - extracting elastic to /home/alaricode/test/roles/elastic
-- elastic (2.0.0) was installed successfully  ```
-3. Создать новый каталог с ролью при помощи `ansible-galaxy role init kibana-role`.                                                  ``` [root@localhost roles]# ansible-galaxy role init kibana-role
+- elastic (2.0.0) was installed successfully 
+```
+3. Создать новый каталог с ролью при помощи `ansible-galaxy role init kibana-role`.                                                  
+```
+[root@localhost roles]# ansible-galaxy role init kibana-role
 - Role kibana-role was created successfully
 [root@localhost roles]# ls
-elastic  kibana-role  requirements.yml```
-4. На основе tasks из старого playbook заполните новую role. Разнесите переменные между `vars` и `default`.                         ``` [root@localhost kibana-role]# nano defaults/main.yml
-[root@localhost kibana-role]# nano vars/main.yml     ```
-5. Перенести нужные шаблоны конфигов в `templates`. 
-6. Создать новый каталог с ролью при помощи `ansible-galaxy role init filebeat-role`.   ``` [root@localhost roles]# ls
+elastic  kibana-role  requirements.yml
+```
+4. На основе tasks из старого playbook заполните новую role. Разнесите переменные между `vars` и `default`.
+```
+[root@localhost kibana-role]# nano defaults/main.yml
+[root@localhost kibana-role]# nano vars/main.yml     
+```
+5. Перенести нужные шаблоны конфигов в `templates`. `готово`
+6. Создать новый каталог с ролью при помощи `ansible-galaxy role init filebeat-role`.   
+```
+[root@localhost roles]# ls
 elastic  kibana-role  requirements.yml
 [root@localhost roles]# ansible-galaxy role init filebeat-role
 - Role filebeat-role was created successfully
 [root@localhost roles]# ls
-elastic  filebeat-role  kibana-role  requirements.yml ```
-7. На основе tasks из старого playbook заполните новую role. Разнесите переменные между `vars` и `default`. ``` [root@localhost filebeat-role]# ls
-defaults  files  handlers  meta  README.md  tasks  templates  tests  vars  ```
-8. Перенести нужные шаблоны конфигов в `templates`.  ``` [root@localhost test]# ls roles/kibana-role/templates/
+elastic  filebeat-role  kibana-role  requirements.yml 
+```
+7. На основе tasks из старого playbook заполните новую role. Разнесите переменные между `vars` и `default`. 
+```
+[root@localhost filebeat-role]# ls
+defaults  files  handlers  meta  README.md  tasks  templates  tests  vars  
+```
+8. Перенести нужные шаблоны конфигов в `templates`.  
+```
+[root@localhost test]# ls roles/kibana-role/templates/
 kibana.sh.j2  kibana.yml.j2
 [root@localhost test]# ls roles/filebeat-role/templates/
 filebeat.sh.j2  filebeat.yml.j2
-[root@localhost test]#   ```
-9. Описать в `README.md` обе роли и их параметры. ``` [README.md](https://github.com/pnadezhdin/ansible-roles/blob/main/filebeat-role/README.md)  [README.md](https://github.com/pnadezhdin/ansible-roles/blob/main/kibana-role/README.md)  
- ```
+[root@localhost test]#   
+```
+9. Описать в `README.md` обе роли и их параметры. 
+```
+[README.md](https://github.com/pnadezhdin/ansible-roles/blob/main/filebeat-role/README.md)  [README.md](https://github.com/pnadezhdin/ansible-roles/blob/main/kibana-role/README.md)  
+```
 
 10. Выложите все roles в репозитории. Проставьте тэги, используя семантическую нумерацию.                                            
 
 11. Добавьте roles в `requirements.yml` в playbook.
-```[requirements.yml](https://github.com/pnadezhdin/ansible-roles/blob/main/requirements.yml)
+```
+[requirements.yml](https://github.com/pnadezhdin/ansible-roles/blob/main/requirements.yml)
 
 ---
   - src: git@github.com:netology-code/mnt-homeworks-ansible.git
@@ -105,7 +125,8 @@ filebeat.sh.j2  filebeat.yml.j2
 ```
 12. Переработайте playbook на использование roles.
 `requirements.yml`
-``` ---
+```
+---
 - name: Get ips
   hosts: all
   pre_tasks:
@@ -135,7 +156,7 @@ filebeat.sh.j2  filebeat.yml.j2
 
  ``` 
 13. Выложите playbook в репозиторий.
-[playbook.yml](https://github.com/pnadezhdin/ansible-roles/blob/main/playbook.yml)
+`[playbook.yml](https://github.com/pnadezhdin/ansible-roles/blob/main/playbook.yml)`
 
 14. В ответ приведите ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.
 
@@ -144,7 +165,8 @@ filebeat.sh.j2  filebeat.yml.j2
 
 [filebeat-role](https://github.com/pnadezhdin/filebeat-role)
 
-[playbook.yml](https://github.com/pnadezhdin/ansible-roles/blob/main/playbook.yml) ```
+[playbook.yml](https://github.com/pnadezhdin/ansible-roles/blob/main/playbook.yml) 
+```
 ## Необязательная часть
 
 1. Проделайте схожие манипуляции для создания роли logstash.
