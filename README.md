@@ -66,9 +66,9 @@ filebeat.sh.j2  filebeat.yml.j2
 [root@localhost test]#   
 ```
 9. Описать в `README.md` обе роли и их параметры. 
-```
+
 [README.md](https://github.com/pnadezhdin/ansible-roles/blob/main/filebeat-role/README.md)  [README.md](https://github.com/pnadezhdin/ansible-roles/blob/main/kibana-role/README.md)  
-```
+
 
 10. Выложите все roles в репозитории. Проставьте тэги, используя семантическую нумерацию.                                            
 
