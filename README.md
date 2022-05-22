@@ -23,9 +23,11 @@
        name: elastic 
    ```
    
-2. При помощи `ansible-galaxy` скачать себе эту роль.                          `[root@localhost roles]# ansible-galaxy install -r requirements.yml --roles-path ./
+2. При помощи `ansible-galaxy` скачать себе эту роль.                          
+`[root@localhost roles]# ansible-galaxy install -r requirements.yml --roles-path ./
 - extracting elastic to /home/alaricode/test/roles/elastic
 - elastic (2.0.0) was installed successfully`
+
 3. Создать новый каталог с ролью при помощи `ansible-galaxy role init kibana-role`.                                                  
 ```
 [root@localhost roles]# ansible-galaxy role init kibana-role
