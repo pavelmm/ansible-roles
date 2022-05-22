@@ -15,17 +15,17 @@
 Наша основная цель - разбить наш playbook на отдельные roles. Задача: сделать roles для elastic, kibana, filebeat и написать playbook для использования этих ролей. Ожидаемый результат: существуют два ваших репозитория с roles и один репозиторий с playbook.
 
 1. Создать в старой версии playbook файл `requirements.yml` и заполнить его следующим содержимым:
-   ```yaml
+   `
    ---
      - src: git@github.com:netology-code/mnt-homeworks-ansible.git
        scm: git
        version: "2.1.4"
        name: elastic 
-   ```
+   `
    `[root@localhost roles]# ls
      requirements.yml`
    
-2. При помощи `ansible-galaxy` скачать себе эту роль.                          ``` 
+2. При помощи `ansible-galaxy` скачать себе эту роль.                          `
 [root@localhost roles]# ansible-galaxy install -r requirements.yml --roles-path ./
 The authenticity of host 'github.com (140.82.121.3)' can't be established.
 ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeI.
@@ -33,16 +33,16 @@ ECDSA key fingerprint is MD5:7b:99:81:1e:4c:91:a5:0d:5a:2e:2e:80:13:3f:24:ca.
 Are you sure you want to continue connecting (yes/no)? yes
 - extracting elastic to /home/alaricode/test/roles/elastic
 - elastic (2.0.0) was installed successfully 
-```
+`
 3. Создать новый каталог с ролью при помощи `ansible-galaxy role init kibana-role`.                                                  
-```
+`
 [root@localhost roles]# ansible-galaxy role init kibana-role
 - Role kibana-role was created successfully
 [root@localhost roles]# ls
 elastic  kibana-role  requirements.yml
-```
+`
 4. На основе tasks из старого playbook заполните новую role. Разнесите переменные между `vars` и `default`.
-```
+```yml
 [root@localhost kibana-role]# nano defaults/main.yml
 [root@localhost kibana-role]# nano vars/main.yml     
 ```
