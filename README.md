@@ -23,17 +23,11 @@
        name: elastic 
    ```
    
-2. При помощи `ansible-galaxy` скачать себе эту роль.                          ```yml
-[root@localhost roles]# ansible-galaxy install -r requirements.yml --roles-path ./
-The authenticity of host 'github.com (140.82.121.3)' can't be established.
-ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeI.
-ECDSA key fingerprint is MD5:7b:99:81:1e:4c:91:a5:0d:5a:2e:2e:80:13:3f:24:ca.
-Are you sure you want to continue connecting (yes/no)? yes
+2. При помощи `ansible-galaxy` скачать себе эту роль.                          `[root@localhost roles]# ansible-galaxy install -r requirements.yml --roles-path ./
 - extracting elastic to /home/alaricode/test/roles/elastic
-- elastic (2.0.0) was installed successfully 
-```
+- elastic (2.0.0) was installed successfully`
 3. Создать новый каталог с ролью при помощи `ansible-galaxy role init kibana-role`.                                                  
-```yml
+```
 [root@localhost roles]# ansible-galaxy role init kibana-role
 - Role kibana-role was created successfully
 [root@localhost roles]# ls
