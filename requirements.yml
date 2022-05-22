@@ -12,30 +12,3 @@
     version: "1.1.0"
     name: filebeat
     
- 
-- name: Get IPs
-  hosts: all
-  pre_tasks:
-    - name: Hosts IP adreses
-      ansible.builtin.setup:
-        filter:
-          - default_ipv4
-      tags: always
-
-- name: Install Elasticsearch
-  hosts: elasticsearch
-  roles:
-    - elastic
-  tags: elastic
-
-- name: Install Kibana
-  hosts: kibana
-  roles:
-    - kibana
-  tags: kibana
-
-- name: Install Filebeat
-  hosts: filebeat
-  roles:
-    - filebeat
-  tags: filebeat
