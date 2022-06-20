@@ -79,15 +79,12 @@ filebeat.sh.j2  filebeat.yml.j2
 ---
   - src: git@github.com:netology-code/mnt-homeworks-ansible.git
     scm: git
-    version: "2.1.4"
     name: elastic
-  - src: git@github.com:run0ut/kibana-role.git
+  - src: git@github.com:pnadezhdin/kibana-role.git
     scm: git
-    version: "1.1.0"
     name: kibana
-  - src: git@github.com:run0ut/filebeat-role.git
+  - src: git@github.com:pnadezhdin/filebeat-role.git
     scm: git
-    version: "1.1.0"
     name: filebeat
     
  
